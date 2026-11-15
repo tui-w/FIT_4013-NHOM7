@@ -257,6 +257,37 @@ Tiếp theo, Hình \ref{fig:cat_attrition} phân tích tỷ lệ nghỉ việc (
     \label{fig:cat_attrition}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/fig14_jobrole_stock_attrition.png}
+    \caption{Tỷ lệ nghỉ việc (\%) theo 9 chức danh công việc (\texttt{JobRole}) và mức quyền chọn cổ phiếu (\texttt{StockOptionLevel}).}
+    \label{fig:jobrole_stock}
+\end{figure}
+
+Để khẳng định các phát hiện trên có ý nghĩa thống kê khách quan thay vì biến động ngẫu nhiên, nhóm thực hiện kiểm định phi tham số \textbf{Mann-Whitney U} cho các đặc trưng số và kiểm định độc lập \textbf{Chi-square ($\chi^2$)} cho các đặc trưng phân loại (Bảng \ref{tab:stat_tests}). Kết quả cho thấy \texttt{TotalWorkingYears} ($p = 2.40 \times 10^{-14}$), \texttt{MonthlyIncome} ($p = 2.95 \times 10^{-14}$), \texttt{OverTime} ($\chi^2 = 87.56, p = 8.16 \times 10^{-21}$) và \texttt{JobRole} ($\chi^2 = 86.19, p = 2.75 \times 10^{-15}$) đều là các nhân tố phân tách cực mạnh, trong khi \texttt{HourlyRate} ($p = 0.79$) và \texttt{MonthlyRate} ($p = 0.56$) không có ý nghĩa thống kê.
+
+\begin{table}[H]
+\centering
+\caption{Tóm tắt kết quả kiểm định giả thuyết thống kê (Mann-Whitney U và Chi-square $\chi^2$).}
+\label{tab:stat_tests}
+\small
+\begin{tabular}{l l r c l}
+\toprule
+\textbf{Đặc trưng} & \textbf{Phép kiểm định} & \textbf{Thống kê / Trung vị} & \textbf{$p$-value} & \textbf{Kết luận} \\
+\midrule
+\texttt{TotalWorkingYears} & Mann-Whitney U & Median: $10.0$ (No) vs $7.0$ (Yes) & $2.40 \times 10^{-14}$ & Có ý nghĩa rất mạnh \\
+\texttt{MonthlyIncome}     & Mann-Whitney U & Median: $\$5{,}204$ vs $\$3{,}202$ & $2.95 \times 10^{-14}$ & Có ý nghĩa rất mạnh \\
+\texttt{YearsAtCompany}    & Mann-Whitney U & Median: $6.0$ (No) vs $3.0$ (Yes)  & $2.92 \times 10^{-13}$ & Có ý nghĩa rất mạnh \\
+\texttt{HourlyRate}        & Mann-Whitney U & Median: $66.0$ vs $66.0$           & $7.90 \times 10^{-1}$  & Không có ý nghĩa (Nhiễu) \\
+\midrule
+\texttt{OverTime}          & Chi-square ($\chi^2$) & $\chi^2 = 87.56$ ($30.5\%$ vs $10.4\%$) & $8.16 \times 10^{-21}$ & Phụ thuộc rất mạnh \\
+\texttt{JobRole}           & Chi-square ($\chi^2$) & $\chi^2 = 86.19$ ($39.8\%$ vs $2.5\%$)  & $2.75 \times 10^{-15}$ & Phụ thuộc rất mạnh \\
+\texttt{MaritalStatus}     & Chi-square ($\chi^2$) & $\chi^2 = 46.16$ ($25.5\%$ vs $10.1\%$) & $9.46 \times 10^{-11}$ & Phụ thuộc rất mạnh \\
+\texttt{BusinessTravel}    & Chi-square ($\chi^2$) & $\chi^2 = 24.18$ ($24.9\%$ vs $8.0\%$)  & $5.61 \times 10^{-6}$  & Phụ thuộc mạnh \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsubsection{Phân tích tương quan và kiểm tra nguy cơ rò rỉ dữ liệu (Data Leakage)}
 Hình \ref{fig:corr_heatmap} trình bày ma trận tương quan Pearson giữa các biến số chính và biến mục tiêu \texttt{Attrition\_Num}.
 \begin{itemize}
@@ -352,6 +383,26 @@ Hình \ref{fig:eng_features} trực quan hóa khả năng phân tách hai lớp 
     \caption{Trực quan hóa sự phân tách lớp của các đặc trưng nghiệp vụ HR mới tạo trong Luồng B.}
     \label{fig:eng_features}
 \end{figure}
+
+Bảng \ref{tab:skew_anova} minh chứng định lượng hiệu quả của Luồng B ngay trên tập huấn luyện (\texttt{X\_train}): phép biến đổi $\log(1+x)$ giúp giảm mạnh hệ số bất đối xứng (\textit{Skewness}) của \texttt{MonthlyIncome} từ $1.333$ xuống còn $0.252$ và \texttt{YearsAtCompany} từ $1.733$ xuống $-0.226$; đồng thời hai đặc trưng mới tạo là \texttt{YoungSingleLowIncome} ($F = 64.26$) và \texttt{OverallSatisfaction} ($F = 34.04$) lọt ngay vào Top 10 đặc trưng có điểm \textbf{ANOVA F-Score} cao nhất toàn bộ tập dữ liệu.
+
+\begin{table}[H]
+\centering
+\caption{Hiệu quả giảm độ lệch (\textit{Skewness}) và xếp hạng ANOVA F-Score trên Luồng B (\texttt{X\_train}).}
+\label{tab:skew_anova}
+\small
+\begin{tabular}{l c c | l r c}
+\toprule
+\textbf{Đặc trưng biến đổi $\log(1+x)$} & \textbf{Skew gốc} & \textbf{Sau $\log(1+x)$} & \textbf{Top Đặc trưng (Luồng B)} & \textbf{F-Score} & \textbf{$p$-value} \\
+\midrule
+\texttt{MonthlyIncome}           & $1.333$ & $\mathbf{0.252}$  & \texttt{TotalWorkingYears}        & $81.66$ & $6.49\times 10^{-19}$ \\
+\texttt{TotalWorkingYears}       & $1.104$ & $-0.634$          & \texttt{YoungSingleLowIncome} (Mới) & $\mathbf{64.26}$ & $2.62\times 10^{-15}$ \\
+\texttt{YearsAtCompany}          & $1.733$ & $\mathbf{-0.226}$ & \texttt{YearsAtCompany}           & $58.33$ & $4.57\times 10^{-14}$ \\
+\texttt{YearsSinceLastPromotion} & $1.971$ & $\mathbf{0.720}$  & \texttt{OverTime\_Yes}            & $56.56$ & $1.08\times 10^{-13}$ \\
+\texttt{DistanceFromHome}        & $0.928$ & $\mathbf{-0.060}$ & \texttt{OverallSatisfaction} (Mới) & $\mathbf{34.04}$ & $6.99\times 10^{-9}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Mô tả các thuật toán học máy được lựa chọn}
 Nhóm lựa chọn đầy đủ 3 thuật toán phân loại đã học trong học phần cùng 1 thuật toán mở rộng:
@@ -542,6 +593,15 @@ Hình \ref{fig:model_comp} trực quan hóa sự cải thiện giữa Luồng A 
     \label{fig:roc_plot}
 \end{figure}
 
+Bên cạnh đường cong ROC, Hình \ref{fig:pr_learning} bổ sung \textbf{Đường cong Precision-Recall (PR Curve)} — thước đo khắt khe hơn trên dữ liệu mất cân bằng lớp ($16.12\%$ lớp dương) — cùng \textbf{Đường cong học tập (Learning Curve)} theo kích thước mẫu huấn luyện. Các mô hình trên Luồng B đều đạt chỉ số PR-AUC ($0.274 - 0.400$) cao gấp $1.7 - 2.5$ lần mốc ngẫu nhiên ($0.160$), đồng thời Learning Curve của \texttt{Decision Tree} và \texttt{Gaussian NB} hội tụ ổn định khi số mẫu tiến tới $940$ bản ghi, chứng tỏ không bị quá khớp (\textit{Overfitting}) nghiêm trọng.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/fig15_pr_and_learning_curves.png}
+    \caption{Đường cong Precision-Recall (trái) và Learning Curve 5-Fold CV theo kích thước mẫu (phải) trên Luồng B.}
+    \label{fig:pr_learning}
+\end{figure}
+
 % =====================================================================
 % CHƯƠNG 5: THẢO LUẬN VÀ SO SÁNH
 % =====================================================================
@@ -631,6 +691,39 @@ Bên cạnh đó, thực hiện nội dung mở rộng theo Mục 2.4.3 của H�
     \item \textbf{Nhóm lỗi False Positive (FP -- Thực tế ở lại nhưng dự đoán nghỉ việc, gồm 65 ca):}
     Các nhân viên như \texttt{\#1495} (24 tuổi, lương thấp $\$2{,}033$, mới vào công ty 1 năm, mức hài lòng thấp $\text{JobSat}=2$) hoặc \texttt{\#434} (27 tuổi, lương $\$2{,}478$, có \texttt{OverTime = Yes}) mang đầy đủ đặc trưng điển hình của nhóm nhân viên hay nghỉ việc. Mặc dù tại thời điểm thu thập dữ liệu họ vẫn đang ở lại (\texttt{Attrition = No}), dưới góc nhìn quản trị nhân sự, các ca \texttt{False Positives} này thực chất là \textbf{nhóm nhân sự có nguy cơ tiềm ẩn cao (\textit{At-risk Employees})} cần được phòng HR quan tâm sớm.
 \end{enumerate}
+
+\subsection{Phân tích hiệu quả kinh tế nhân sự (Cost-Sensitive HR ROI)}
+Trong thực tiễn quản trị nhân sự, chi phí của hai loại sai lầm mang tính bất đối xứng mạnh: bỏ sót 1 nhân viên nghỉ việc (\textit{False Negative}) gây thiệt hại trung bình khoảng $\$15{,}000$ (chi phí tuyển mới, đào tạo hội nhập và hụt năng suất), trong khi chi phí can thiệp giữ chân sớm (\textit{True Positive} hoặc \textit{False Positive}) chỉ vào khoảng $\$1{,}500$/người với tỷ lệ giữ chân thành công giả định là $50\%$ đối với các ca phát hiện đúng.
+
+Bảng \ref{tab:hr_roi} và Hình \ref{fig:hr_roi} định lượng số tiền tiết kiệm ròng (\textit{Net Savings}) trên tập kiểm thử ($N = 294$, tổng chi phí nếu không dùng mô hình là $47 \times \$15{,}000 = \$705{,}000$). Kết quả cho thấy:
+\begin{itemize}
+    \item Ở ngưỡng mặc định $0.50$, mô hình \texttt{Gaussian Naive Bayes (Luồng B)} giúp tiết kiệm ròng $\mathbf{\$105{,}000}$ và \texttt{Random Forest (Luồng B)} đạt mức tiết kiệm cao nhất là $\mathbf{\$118{,}500}$ (giảm $16.8\%$ tổng tổn thất nghỉ việc).
+    \item Khi tối ưu hóa ngưỡng quyết định theo hàm chi phí HR (\textit{Cost-Optimal Threshold}), \texttt{Gaussian Naive Bayes} tại ngưỡng $\tau = 0.30$ đẩy mức tiết kiệm ròng lên tới $\mathbf{\$120{,}000}$ nhờ nâng Recall lên $68.1\%$.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Định lượng hiệu quả kinh tế (Cost-Sensitive HR ROI) trên tập kiểm thử ($N = 294$).}
+\label{tab:hr_roi}
+\small
+\begin{tabular}{l c c c r r c r}
+\toprule
+\textbf{Mô hình (Luồng B)} & \textbf{TP} & \textbf{FN} & \textbf{FP} & \textbf{Chi phí (Ngưỡng 0.5)} & \textbf{Tiết kiệm Ròng} & \textbf{Ngưỡng Tối ưu} & \textbf{Tiết kiệm Tối đa} \\
+\midrule
+K-NN (Tuned)          & $12$ & $35$ & $14$ & $\$654{,}000$ & $\$51{,}000$          & $0.15$ & $\$55{,}500$ \\
+Gaussian NB (Tuned)   & $27$ & $20$ & $38$ & $\$600{,}000$ & $\$105{,}000$         & $0.30$ & $\mathbf{\$120{,}000}$ \\
+Decision Tree (Tuned) & $32$ & $15$ & $65$ & $\$610{,}500$ & $\$94{,}500$          & $0.39$ & $\$96{,}000$ \\
+Random Forest (Mở rộng) & $29$ & $18$ & $37$ & $\$586{,}500$ & $\mathbf{\$118{,}500}$ & $0.50$ & $\$118{,}500$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figures/fig16_business_cost_analysis.png}
+    \caption{So sánh tiết kiệm ròng (trái) và đường cong chi phí theo ngưỡng quyết định (phải) trên tập kiểm thử.}
+    \label{fig:hr_roi}
+\end{figure}
 
 \subsection{Hạn chế của dữ liệu và giải pháp hiện tại}
 \begin{itemize}
