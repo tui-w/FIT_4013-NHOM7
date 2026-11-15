@@ -1,0 +1,550 @@
+{
+  "shape": [
+    1470,
+    35
+  ],
+  "null_count": 0,
+  "duplicate_count": 0,
+  "target_counts": {
+    "No": 1233,
+    "Yes": 237
+  },
+  "target_pct": {
+    "No": 83.88,
+    "Yes": 16.12
+  },
+  "results_table": [
+    {
+      "Model": "Dummy (Most Frequent)",
+      "Stream": "Luồng A",
+      "Stage": "Baseline",
+      "CV_F1": 0.0,
+      "Accuracy": 0.8401,
+      "Precision": 0.0,
+      "Recall": 0.0,
+      "F1": 0.0,
+      "ROC_AUC": 0.5,
+      "PR_AUC": 0.1599,
+      "CM": [
+        [
+          247,
+          0
+        ],
+        [
+          47,
+          0
+        ]
+      ]
+    },
+    {
+      "Model": "Dummy (Stratified)",
+      "Stream": "Luồng A",
+      "Stage": "Baseline",
+      "CV_F1": 0.1644,
+      "Accuracy": 0.7143,
+      "Precision": 0.1224,
+      "Recall": 0.1277,
+      "F1": 0.125,
+      "ROC_AUC": 0.4768,
+      "PR_AUC": 0.1551,
+      "CM": [
+        [
+          204,
+          43
+        ],
+        [
+          41,
+          6
+        ]
+      ]
+    },
+    {
+      "Model": "K-NN",
+      "Stream": "Luồng A",
+      "Stage": "Default",
+      "CV_F1": 0.2264,
+      "Accuracy": 0.8367,
+      "Precision": 0.4545,
+      "Recall": 0.1064,
+      "F1": 0.1724,
+      "ROC_AUC": 0.6181,
+      "PR_AUC": 0.2637,
+      "CM": [
+        [
+          241,
+          6
+        ],
+        [
+          42,
+          5
+        ]
+      ]
+    },
+    {
+      "Model": "Gaussian NB",
+      "Stream": "Luồng A",
+      "Stage": "Default",
+      "CV_F1": 0.3902,
+      "Accuracy": 0.6156,
+      "Precision": 0.25,
+      "Recall": 0.7021,
+      "F1": 0.3687,
+      "ROC_AUC": 0.6956,
+      "PR_AUC": 0.3458,
+      "CM": [
+        [
+          148,
+          99
+        ],
+        [
+          14,
+          33
+        ]
+      ]
+    },
+    {
+      "Model": "Decision Tree",
+      "Stream": "Luồng A",
+      "Stage": "Default",
+      "CV_F1": 0.3714,
+      "Accuracy": 0.7585,
+      "Precision": 0.2931,
+      "Recall": 0.3617,
+      "F1": 0.3238,
+      "ROC_AUC": 0.5979,
+      "PR_AUC": 0.2081,
+      "CM": [
+        [
+          206,
+          41
+        ],
+        [
+          30,
+          17
+        ]
+      ]
+    },
+    {
+      "Model": "K-NN",
+      "Stream": "Luồng B",
+      "Stage": "Default",
+      "CV_F1": 0.2924,
+      "Accuracy": 0.8503,
+      "Precision": 0.6364,
+      "Recall": 0.1489,
+      "F1": 0.2414,
+      "ROC_AUC": 0.6285,
+      "PR_AUC": 0.2903,
+      "CM": [
+        [
+          243,
+          4
+        ],
+        [
+          40,
+          7
+        ]
+      ]
+    },
+    {
+      "Model": "Gaussian NB",
+      "Stream": "Luồng B",
+      "Stage": "Default",
+      "CV_F1": 0.4304,
+      "Accuracy": 0.7449,
+      "Precision": 0.3444,
+      "Recall": 0.6596,
+      "F1": 0.4526,
+      "ROC_AUC": 0.7373,
+      "PR_AUC": 0.3644,
+      "CM": [
+        [
+          188,
+          59
+        ],
+        [
+          16,
+          31
+        ]
+      ]
+    },
+    {
+      "Model": "Decision Tree",
+      "Stream": "Luồng B",
+      "Stage": "Default",
+      "CV_F1": 0.3257,
+      "Accuracy": 0.7891,
+      "Precision": 0.3529,
+      "Recall": 0.383,
+      "F1": 0.3673,
+      "ROC_AUC": 0.6247,
+      "PR_AUC": 0.2338,
+      "CM": [
+        [
+          214,
+          33
+        ],
+        [
+          29,
+          18
+        ]
+      ]
+    },
+    {
+      "Model": "K-NN",
+      "Stream": "Luồng A",
+      "Stage": "Tuned",
+      "CV_F1": 0.3719,
+      "Accuracy": 0.8469,
+      "Precision": 0.5625,
+      "Recall": 0.1915,
+      "F1": 0.2857,
+      "ROC_AUC": 0.6677,
+      "PR_AUC": 0.2833,
+      "CM": [
+        [
+          240,
+          7
+        ],
+        [
+          38,
+          9
+        ]
+      ]
+    },
+    {
+      "Model": "Gaussian NB",
+      "Stream": "Luồng A",
+      "Stage": "Tuned",
+      "CV_F1": 0.5029,
+      "Accuracy": 0.7891,
+      "Precision": 0.3729,
+      "Recall": 0.4681,
+      "F1": 0.4151,
+      "ROC_AUC": 0.7258,
+      "PR_AUC": 0.4353,
+      "CM": [
+        [
+          210,
+          37
+        ],
+        [
+          25,
+          22
+        ]
+      ]
+    },
+    {
+      "Model": "Decision Tree",
+      "Stream": "Luồng A",
+      "Stage": "Tuned",
+      "CV_F1": 0.4438,
+      "Accuracy": 0.7449,
+      "Precision": 0.3409,
+      "Recall": 0.6383,
+      "F1": 0.4444,
+      "ROC_AUC": 0.7026,
+      "PR_AUC": 0.3312,
+      "CM": [
+        [
+          189,
+          58
+        ],
+        [
+          17,
+          30
+        ]
+      ]
+    },
+    {
+      "Model": "Random Forest (Mở rộng)",
+      "Stream": "Luồng A",
+      "Stage": "Tuned",
+      "CV_F1": 0.4899,
+      "Accuracy": 0.7993,
+      "Precision": 0.4091,
+      "Recall": 0.5745,
+      "F1": 0.4779,
+      "ROC_AUC": 0.7819,
+      "PR_AUC": 0.4,
+      "CM": [
+        [
+          208,
+          39
+        ],
+        [
+          20,
+          27
+        ]
+      ]
+    },
+    {
+      "Model": "K-NN",
+      "Stream": "Luồng B",
+      "Stage": "Tuned",
+      "CV_F1": 0.3498,
+      "Accuracy": 0.8333,
+      "Precision": 0.4615,
+      "Recall": 0.2553,
+      "F1": 0.3288,
+      "ROC_AUC": 0.6562,
+      "PR_AUC": 0.2737,
+      "CM": [
+        [
+          233,
+          14
+        ],
+        [
+          35,
+          12
+        ]
+      ]
+    },
+    {
+      "Model": "Gaussian NB",
+      "Stream": "Luồng B",
+      "Stage": "Tuned",
+      "CV_F1": 0.5012,
+      "Accuracy": 0.8027,
+      "Precision": 0.4154,
+      "Recall": 0.5745,
+      "F1": 0.4821,
+      "ROC_AUC": 0.7507,
+      "PR_AUC": 0.3653,
+      "CM": [
+        [
+          209,
+          38
+        ],
+        [
+          20,
+          27
+        ]
+      ]
+    },
+    {
+      "Model": "Decision Tree",
+      "Stream": "Luồng B",
+      "Stage": "Tuned",
+      "CV_F1": 0.4457,
+      "Accuracy": 0.7279,
+      "Precision": 0.3299,
+      "Recall": 0.6809,
+      "F1": 0.4444,
+      "ROC_AUC": 0.6972,
+      "PR_AUC": 0.2835,
+      "CM": [
+        [
+          182,
+          65
+        ],
+        [
+          15,
+          32
+        ]
+      ]
+    },
+    {
+      "Model": "Random Forest (Mở rộng)",
+      "Stream": "Luồng B",
+      "Stage": "Tuned",
+      "CV_F1": 0.5056,
+      "Accuracy": 0.8129,
+      "Precision": 0.4394,
+      "Recall": 0.617,
+      "F1": 0.5133,
+      "ROC_AUC": 0.7785,
+      "PR_AUC": 0.3997,
+      "CM": [
+        [
+          210,
+          37
+        ],
+        [
+          18,
+          29
+        ]
+      ]
+    }
+  ],
+  "best_params": {
+    "K-NN (Luồng A)": {
+      "clf__metric": "manhattan",
+      "clf__n_neighbors": "3",
+      "clf__weights": "uniform",
+      "select__k": "15"
+    },
+    "Gaussian NB (Luồng A)": {
+      "clf__var_smoothing": "0.31622776601683794",
+      "select__k": "30"
+    },
+    "Decision Tree (Luồng A)": {
+      "clf__class_weight": "balanced",
+      "clf__criterion": "entropy",
+      "clf__max_depth": "5",
+      "clf__min_samples_leaf": "20"
+    },
+    "Random Forest (Luồng A)": {
+      "clf__class_weight": "balanced",
+      "clf__max_depth": "6",
+      "clf__min_samples_leaf": "5"
+    },
+    "K-NN (Luồng B)": {
+      "clf__metric": "euclidean",
+      "clf__n_neighbors": "3",
+      "clf__weights": "uniform",
+      "select__k": "15"
+    },
+    "Gaussian NB (Luồng B)": {
+      "clf__var_smoothing": "0.03162277660168379",
+      "select__k": "all"
+    },
+    "Decision Tree (Luồng B)": {
+      "clf__class_weight": "balanced",
+      "clf__criterion": "gini",
+      "clf__max_depth": "4",
+      "clf__min_samples_leaf": "15"
+    },
+    "Random Forest (Luồng B)": {
+      "clf__class_weight": "balanced",
+      "clf__max_depth": "8",
+      "clf__min_samples_leaf": "10"
+    }
+  },
+  "fn_count_dt_b": 15,
+  "fp_count_dt_b": 65,
+  "fn_samples": [
+    {
+      "EmployeeNumber": 90,
+      "Age": 36,
+      "MonthlyIncome": 3388,
+      "OverTime": "Yes",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 3,
+      "YearsAtCompany": 1,
+      "YearsSinceLastPromotion": 0,
+      "Pred_Prob": 0.444
+    },
+    {
+      "EmployeeNumber": 1389,
+      "Age": 31,
+      "MonthlyIncome": 6179,
+      "OverTime": "Yes",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 3,
+      "YearsAtCompany": 10,
+      "YearsSinceLastPromotion": 6,
+      "Pred_Prob": 0.252
+    },
+    {
+      "EmployeeNumber": 179,
+      "Age": 51,
+      "MonthlyIncome": 10650,
+      "OverTime": "No",
+      "BusinessTravel": "Travel_Frequently",
+      "JobSatisfaction": 4,
+      "YearsAtCompany": 4,
+      "YearsSinceLastPromotion": 0,
+      "Pred_Prob": 0.163
+    },
+    {
+      "EmployeeNumber": 58,
+      "Age": 41,
+      "MonthlyIncome": 19545,
+      "OverTime": "No",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 3,
+      "YearsAtCompany": 22,
+      "YearsSinceLastPromotion": 15,
+      "Pred_Prob": 0.163
+    },
+    {
+      "EmployeeNumber": 165,
+      "Age": 58,
+      "MonthlyIncome": 10312,
+      "OverTime": "No",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 4,
+      "YearsAtCompany": 40,
+      "YearsSinceLastPromotion": 15,
+      "Pred_Prob": 0.163
+    }
+  ],
+  "fp_samples": [
+    {
+      "EmployeeNumber": 1495,
+      "Age": 24,
+      "MonthlyIncome": 2033,
+      "OverTime": "No",
+      "BusinessTravel": "Non-Travel",
+      "JobSatisfaction": 2,
+      "YearsAtCompany": 1,
+      "YearsSinceLastPromotion": 0,
+      "Pred_Prob": 0.958
+    },
+    {
+      "EmployeeNumber": 1839,
+      "Age": 18,
+      "MonthlyIncome": 1514,
+      "OverTime": "No",
+      "BusinessTravel": "Non-Travel",
+      "JobSatisfaction": 3,
+      "YearsAtCompany": 0,
+      "YearsSinceLastPromotion": 0,
+      "Pred_Prob": 0.647
+    },
+    {
+      "EmployeeNumber": 1297,
+      "Age": 51,
+      "MonthlyIncome": 2838,
+      "OverTime": "No",
+      "BusinessTravel": "Travel_Frequently",
+      "JobSatisfaction": 3,
+      "YearsAtCompany": 7,
+      "YearsSinceLastPromotion": 7,
+      "Pred_Prob": 0.673
+    },
+    {
+      "EmployeeNumber": 434,
+      "Age": 27,
+      "MonthlyIncome": 2478,
+      "OverTime": "Yes",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 2,
+      "YearsAtCompany": 4,
+      "YearsSinceLastPromotion": 1,
+      "Pred_Prob": 0.853
+    },
+    {
+      "EmployeeNumber": 833,
+      "Age": 30,
+      "MonthlyIncome": 6877,
+      "OverTime": "Yes",
+      "BusinessTravel": "Travel_Rarely",
+      "JobSatisfaction": 4,
+      "YearsAtCompany": 0,
+      "YearsSinceLastPromotion": 0,
+      "Pred_Prob": 0.853
+    }
+  ],
+  "top_features_dt": {
+    "MonthlyIncome": 0.0044,
+    "JobRole_Research Scientist": 0.0211,
+    "Department_Sales": 0.0558,
+    "Age": 0.0834,
+    "StockOptionLevel": 0.084,
+    "OverallSatisfaction": 0.1873,
+    "OverTime_Yes": 0.2411,
+    "TotalWorkingYears": 0.3229
+  },
+  "top_features_rf": {
+    "CompanyTenureRatio": 0.044,
+    "YearsWithCurrManager": 0.0453,
+    "YearsAtCompany": 0.046,
+    "OverallSatisfaction": 0.0528,
+    "OverTime_Yes": 0.0576,
+    "Age": 0.0644,
+    "TotalWorkingYears": 0.0679,
+    "MonthlyIncome": 0.0776
+  }
+}
