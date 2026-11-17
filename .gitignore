@@ -12,6 +12,15 @@ __pycache__/
 env/
 venv/
 
+# Reports, Documents, Archives & LaTeX
+*.docx
+*.pdf
+*.zip
+*.tex
+*.bib
+report/
+figures/
+
 # Matplotlib cache & LaTeX build artifacts
 report/.mplconfig/
 *.aux
