@@ -1,0 +1,36 @@
+﻿STT,Tên thuộc tính (Feature),Kiểu dữ liệu,Bản chất,Ý nghĩa chi tiết và Thang đo
+1,Age,int64,Số liên tục,Tuổi của nhân viên (18 - 60 tuổi)
+2,Attrition,object,Mục tiêu (Nhị phân),Nhân viên có nghỉ việc hay không (Yes / No)
+3,BusinessTravel,object,Phân loại (Thứ bậc),"Tần suất đi công tác (Non-Travel, Travel_Rarely, Travel_Frequently)"
+4,DailyRate,int64,Số liên tục,Mức lương quy chiếu theo ngày (102 - 1499)
+5,Department,object,Phân loại định danh,"Phòng ban làm việc (Sales, Research & Development, Human Resources)"
+6,DistanceFromHome,int64,Số liên tục,Khoảng cách từ nhà đến công ty (1 - 29 dặm)
+7,Education,int64,Thứ bậc (1-5),"Trình độ học vấn (1: Below College, 2: College, 3: Bachelor, 4: Master, 5: Doctor)"
+8,EducationField,object,Phân loại định danh,"Chuyên ngành đào tạo (Life Sciences, Medical, Marketing, Technical Degree...)"
+9,EmployeeCount,int64,Hằng số (=1),Số lượng nhân viên trên mỗi bản ghi (luôn bằng 1 -> Cần loại bỏ)
+10,EmployeeNumber,int64,Định danh (ID),Mã định danh duy nhất của nhân viên (1 - 2068 -> Cần loại bỏ)
+11,EnvironmentSatisfaction,int64,Thứ bậc (1-4),Mức độ hài lòng với môi trường làm việc (1: Low -> 4: Very High)
+12,Gender,object,Phân loại nhị phân,Giới tính (Male / Female)
+13,HourlyRate,int64,Số liên tục,Mức lương quy chiếu theo giờ (30 - 100)
+14,JobInvolvement,int64,Thứ bậc (1-4),Mức độ gắn kết/tham gia vào công việc (1: Low -> 4: Very High)
+15,JobLevel,int64,Thứ bậc (1-5),Cấp bậc công việc trong tổ chức (1: Nhân viên mới -> 5: Giám đốc/Cấp cao)
+16,JobRole,object,Phân loại định danh,"Chức danh công việc cụ thể (9 chức danh: Sales Executive, Research Scientist...)"
+17,JobSatisfaction,int64,Thứ bậc (1-4),Mức độ hài lòng với công việc hiện tại (1: Low -> 4: Very High)
+18,MaritalStatus,object,Phân loại định danh,"Tình trạng hôn nhân (Single, Married, Divorced)"
+19,MonthlyIncome,int64,Số liên tục,"Thu nhập thực tế hàng tháng bằng USD (1,009 - 19,999)"
+20,MonthlyRate,int64,Số liên tục,"Mức lương quy chiếu theo tháng (2,094 - 26,999)"
+21,NumCompaniesWorked,int64,Số rời rạc,Tổng số công ty nhân viên từng làm việc trước đây (0 - 9)
+22,Over18,object,Hằng số (='Y'),Nhân viên trên 18 tuổi hay không (luôn là 'Y' -> Cần loại bỏ)
+23,OverTime,object,Phân loại nhị phân,Nhân viên có làm thêm giờ hay không (Yes / No)
+24,PercentSalaryHike,int64,Số liên tục,Tỷ lệ phần trăm tăng lương gần nhất (11% - 25%)
+25,PerformanceRating,int64,Thứ bậc (3-4),"Điểm đánh giá hiệu suất làm việc (3: Excellent, 4: Outstanding)"
+26,RelationshipSatisfaction,int64,Thứ bậc (1-4),Mức độ hài lòng với các mối quan hệ đồng nghiệp/quản lý (1 - 4)
+27,StandardHours,int64,Hằng số (=80),Số giờ làm việc tiêu chuẩn trong kỳ (luôn bằng 80 -> Cần loại bỏ)
+28,StockOptionLevel,int64,Thứ bậc (0-3),Mức quyền chọn mua cổ phiếu ưu đãi của công ty (0 - 3)
+29,TotalWorkingYears,int64,Số liên tục,Tổng số năm kinh nghiệm đi làm trong sự nghiệp (0 - 40 năm)
+30,TrainingTimesLastYear,int64,Số rời rạc,Số lần tham gia khóa đào tạo trong năm ngoái (0 - 6 lần)
+31,WorkLifeBalance,int64,Thứ bậc (1-4),Mức độ cân bằng giữa công việc và cuộc sống (1: Bad -> 4: Best)
+32,YearsAtCompany,int64,Số liên tục,Tổng số năm làm việc tại công ty hiện tại (0 - 40 năm)
+33,YearsInCurrentRole,int64,Số liên tục,Số năm giữ vị trí công việc hiện tại (0 - 18 năm)
+34,YearsSinceLastPromotion,int64,Số liên tục,Số năm kể từ lần được thăng chức gần nhất (0 - 15 năm)
+35,YearsWithCurrManager,int64,Số liên tục,Số năm làm việc dưới quyền người quản lý hiện tại (0 - 17 năm)
